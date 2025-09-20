@@ -1,43 +1,32 @@
-import type { Metadata } from "next";
-import { Geist, Geist_Mono, Inter, Space_Grotesk } from "next/font/google";
-import "./globals.css";
-import Navbar from "@/components/Navbar";
+import Navbar from '@/components/Navbar'
+import './globals.css'
+import type { Metadata } from 'next'
+import { Inter, Space_Grotesk } from 'next/font/google'
 
-const inter = Inter({ subsets: ['latin']})
-const SpaceGrotesk = Space_Grotesk({
-  subsets: ['latin'], weight: ['300', '400', '500', '600', '700']
-})
-const geistSans = Geist({
-  variable: "--font-geist-sans",
-  subsets: ["latin"],
-});
-
-const geistMono = Geist_Mono({
-  variable: "--font-geist-mono",
-  subsets: ["latin"],
-});
+const inter = Inter({ subsets: ['latin'] })
+const spaceGrotesk = Space_Grotesk({ 
+  subsets: ['latin'], 
+  weight: ['300', '400', '500', '600', '700']
+ })
 
 export const metadata: Metadata = {
-  title: "Mint",
-  description: "Shop smarter, not harder - let prices track themselves while you save.",
-};
+  title: 'Pricewise',
+  description: 'Track product prices effortlessly and save money on your online shopping.',
+}
 
 export default function RootLayout({
   children,
-}: Readonly<{
-  children: React.ReactNode;
-}>) {
+}: {
+  children: React.ReactNode
+}) {
   return (
     <html lang="en">
-      <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased`}
-      >
-        <main className="max-w-10x1 mx-auto">
+      <body className={inter.className}>
+        <main className="max-w-10xl mx-auto">
           <Navbar />
-            {children}
+          {children}
         </main>
-        
       </body>
     </html>
-  );
+  )
 }
